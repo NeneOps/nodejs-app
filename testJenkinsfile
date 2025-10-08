@@ -3,6 +3,7 @@ pipeline{
 
     stages{
         stage('install dependencies'){
+            agent {docker {image 'node'}} //since node is not installed in jenkins, we are using docker with node on it
             steps{
                 sh 'npm install'
             }
