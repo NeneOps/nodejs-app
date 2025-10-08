@@ -5,9 +5,7 @@ pipeline{
         stage('install dependencies'){
             agent {docker {image 'nodejs'}} //since node is not installed in jenkins, we are using docker with node on it
             steps{
-                sh 'cat /etc/os-release'
-                sh 'apt update'
-                sh 'apt install sudo -y'
+                
                 sh 'sudo chown -R 995:993 "/.npm"'
                 sh 'npm install'
             }
