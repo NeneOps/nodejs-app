@@ -6,7 +6,7 @@ pipeline{
             agent {docker {image 'nodejs'}} //since node is not installed in jenkins, we are using docker with node on it
             steps{
                 
-                sh 'sudo chown -R 995:993 "/.npm"'
+              //  sh 'sudo chown -R 995:993 "/.npm"'
                 sh 'npm install'
             }
         }
