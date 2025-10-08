@@ -3,10 +3,10 @@ pipeline{
 
     stages{
         stage('install dependencies'){
-            agent {docker {image 'nodejs'}} //since node is not installed in jenkins, we are using docker with node on it
+            agent {docker {image 'node:9.8.0'}} //since node is not installed in jenkins, we are using docker with node on it
             steps{
                 
-                sh 'npm cache clean"'
+                //sh 'npm cache clean"'
                 sh 'npm install'
             }
         }
