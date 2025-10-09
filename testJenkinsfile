@@ -1,12 +1,17 @@
 pipeline{
-      agent any
+       agent {docker {image 'node:18' 
+            args '-u root:sudo'}} //since node is not installed in jenkins, we are using docker with node on it
 
     stages{
         stage('install dependencies'){
-            agent {docker {image 'node:18' 
-            args '-u root:sudo'}} //since node is not installed in jenkins, we are using docker with node on it
+           
             steps{
                 sh 'npm install'
+            }
+        }
+        stage('package'){
+            steps{
+                sh 'npm pack'
             }
         }
     }
