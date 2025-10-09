@@ -11,6 +11,7 @@ pipeline{
         }
         stage('package'){
             steps{
+                sh 'rm -rf *.tgz || echo ""' // remove all old tgz files before we package the new one 
                 sh 'npm pack'
             }
         }
